@@ -1,0 +1,143 @@
+\documentclass[UTF8,a4paper,12pt]{ctexart}
+%中文论文类型
+%%%%preamble 定义导言开始%%%%%%%%%%%
+\usepackage{indentfirst,latexsym,bm}
+\setlength{\parindent}{2em} %段首缩进量
+\renewcommand{\baselinestretch}{1.2} %行距倍数
+\renewcommand{\abstractname}{摘\quad要} %重置变量值
+
+\usepackage[colorlinks]{hyperref} %目录超链接
+\usepackage{amsmath}
+\usepackage{listings}
+
+\usepackage{float}
+\usepackage{geometry}
+\geometry{a4paper,centering,scale = 0.6}%%页面尺寸
+
+\usepackage{graphicx}%%导入pdf/png/eps
+
+\title
+{
+C语言读取ext2文件系统
+\thanks{supported by NSFC.}
+\footnotetext{\textit{Keyword:}特征值}
+}
+\author
+{李世旺\\[5pt] Departmrnt of Mathematics, Soochow University\\(苏州大学数学系)}
+\date{\today}
+\bibliographystyle{plain}%%声明参考文件格式
+\newtheorem{thm}{定理}%%thm 变量
+\newenvironment{myquote}{\begin{quote}\zihao{-6}\kaishu}{\end{quote}}
+\newcommand\degree{^\circ}
+
+%%%%preamble 定义导言结束%%%%%%%%%%%
+\begin{document}
+\maketitle
+%制作标题
+\begin{abstract}
+ext2作为简单的文件系统，我们应该学习它的存储格式。
+本文就ext2文件系统进行分析并用C语言读取文件。
+\end{abstract}
+%\begin{keywords}
+%内存管理\sep连续分配\sep动态分区
+%\end{keywords}
+\newpage
+
+\tableofcontents
+%制作目录
+\newpage
+\section{实验目的}
+用C语言读取ext2文件系统
+\section{实验原理与方案}
+ext2文件系统的基本单元是一个个的block，每个block常常是 1KB、2KB、4KB等。文件系统的最前 1KB 留做启动用途，1KB 到 2KB 的地方
+是 superblock 的所在。下一个 block 开始就是 块群描述表。我们把一定量的 block 分割开来，叫做块群。
+\subsection{inode}
+每一个目录或文件都有一个 inode 指定。
+根目录的 inode 一般为 2, 也就是第二项 inode.
+\subsection{目录文件}
+每一个目录或文件都有一个 inode 指定。
+目录看作是一个文件，这个文件包含目录下的所有文件或目录的名字和权限等属性，这些属性所
+\section{执行结果与分析}
+%%%%%%
+$$R^e = R \otimes R$$
+\begin{verbatim}
+
+int main(int argc, char** argv)
+{
+    Initial(argc, argv);
+    return 0;
+}
+
+
+\end{verbatim}
+%\end{lstlisting}
+\begin{center}
+\setlength{\unitlength}{1mm}
+\begin{picture}(60,30)
+\linethickness{1pt}
+\put(0,0){\vector(1,0){60}}
+\put(0,0){\vector(0,1){30}}
+\thicklines
+\put(5,7){\line(5,2){50}}
+%\qbezier(5,7)(10,9)(55,27)
+\thinlines
+\multiput(5,7)(3,0){15}{\line(1,0){2}}
+\multiput(50,7.00)(0,3){6}{\line(0,1){2}}
+\put(28,3){$\Delta x$}
+\put(51,14){$\Delta y$}
+\circle*{50}
+\end{picture}
+\qquad
+\begin{picture}(60,30)
+\linethickness{1pt}
+\put(0,0){\vector(1,0){60}}
+\put(0,0){\vector(0,1){30}}
+\thicklines
+%\put(5,7){\line(5,2){50}}
+\qbezier[1000](5,7)(10,9)(55,27)
+\thinlines
+\multiput(5,7)(3,0){15}{\line(1,0){2}}
+\multiput(50,7.00)(0,3){6}{\line(0,1){2}}
+\put(28,3){$\Delta x$}
+\put(51,14){$\Delta y$}
+\circle*{50}
+\end{picture}
+\end{center}
+\begin{center}
+\setlength{\unitlength}{1mm}
+\begin{picture}(60,50)
+\put(20,7){\circle*{2}}
+\put(20,7){\circle{14}}
+\put(0,11){\line(6,1){35}}
+\put(15.5,13.6){\line(3,5){4.5}}
+\put(20,21){\line(1,-2){3}}
+\put(20,21){\line(0,1){7}}
+\put(13,28){\line(6,-1){14}}
+\put(20,30){\circle{4}}
+\end{picture}
+
+\end{center}
+\begin{center}
+\setlength{\unitlength}{1mm}
+\begin{picture}(60,50)
+\thicklines
+\put(20,11){\oval(20,22)}
+\multiput(16,15)(8,0){2}{\oval(6,4)[t]}
+\put(20,9){\oval(2,2)[b]}
+\put(20,5){\oval(6,5)[b]}
+\end{picture}
+
+\end{center}
+\begin{center}
+\setlength{\unitlength}{2mm}
+\begin{picture}(30,25)
+\put(0,0){\circle*{1}}\put(0,20){\circle*{1}}\put(40,20){\circle*{1}}\put(40,0){\circle*{1}}
+\qbezier[20](0,0)(0,10)(0,20)\qbezier[40](0,20)(20,20)(40,20)
+\qbezier(0,0)(0,20)(40,20)\qbezier(0,0)(40,0)(40,20)
+\qbezier[20](40,0)(40,10)(40,20)\qbezier[40](0,0)(20,0)(40,0)
+\put(1,0){\framebox(0,0)[bl]{(0,0)}}\put(1,19){\framebox(0,0)[tl]{(0,20)}}
+\put(40,18.5){\framebox(0,0)[tr]{(0,0)}}\put(40,1){\makebox(0,0)[br]{(0,0)}}
+\end{picture}
+
+\end{center}
+\end{document}

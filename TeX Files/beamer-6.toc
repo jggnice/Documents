@@ -1,0 +1,5 @@
+\beamer@endinputifotherversion {3.36pt}
+\beamer@sectionintoc {1}{Fine and Wilf’s Theorem}{3}{0}{1}
+\beamer@subsectionintoc {1}{1}{The Case of Two or Three Holes}{3}{0}{1}
+\beamer@subsubsectionintoc {1}{1}{1}{Definition 3.7}{3}{0}{1}
+\beamer@sectionintoc {2}{世界!}{4}{0}{2}

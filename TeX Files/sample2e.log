@@ -1,0 +1,13 @@
+This is TeX, Version 3.14159265 (TeX Live 2015/W32TeX) (preloaded format=tex 2016.5.2)  24 MAY 2016 22:45
+**./sample2e.tex
+(./sample2e.tex
+! Undefined control sequence.
+l.6 \documentclass
+                  {article}      % Specifies the document class
+? 
+! Emergency stop.
+l.6 \documentclass
+                  {article}      % Specifies the document class
+End of file on the terminal!
+
+No pages of output.

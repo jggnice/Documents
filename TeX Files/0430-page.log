@@ -1,0 +1,16 @@
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/W32TeX) (preloaded format=pdftex 2016.5.2)  24 MAY 2016 22:43
+entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**./0430-page.tex
+(./0430-page.tex
+! Undefined control sequence.
+l.1 \documentclass
+                  [UTF8]{ctexart}
+? 
+! Emergency stop.
+l.1 \documentclass
+                  [UTF8]{ctexart}
+End of file on the terminal!
+
+!  ==> Fatal error occurred, no output PDF file produced!
